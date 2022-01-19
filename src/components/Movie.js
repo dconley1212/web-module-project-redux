@@ -6,12 +6,14 @@ import { deleteMovie } from "../actions/movieActions";
 const Movie = (props) => {
   const { id } = useParams();
   const { push } = useHistory();
+  console.log(props);
 
   const { movies } = props;
   const movie = movies.find((movie) => movie.id === Number(id));
 
-  const handleDelete = (id) => {
+  const handleDeleteClick = (id) => {
     props.dispatch(deleteMovie(id));
+    push("/movies");
   };
 
   return (
@@ -59,7 +61,7 @@ const Movie = (props) => {
                     type="button"
                     className="m-2 btn btn-danger"
                     value="Delete"
-                    // onClick={handleDelete}
+                    onClick={handleDeleteClick}
                   />
                 </span>
               </section>
