@@ -6,7 +6,6 @@ import { deleteMovie } from "../actions/movieActions";
 const Movie = (props) => {
   const { id } = useParams();
   const { push } = useHistory();
-  console.log(props);
 
   const { movies } = props;
   const movie = movies.find((movie) => movie.id === Number(id));

@@ -22,9 +22,10 @@ const AddMovieForm = (props) => {
     });
   };
 
-  const handleSubmit = (movie) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     props.dispatch(addMovie(movie));
+    push("/movies/");
   };
 
   const { title, director, genre, metascore, description } = movie;
@@ -32,7 +33,7 @@ const AddMovieForm = (props) => {
     <div className="col">
       <div className="modal-dialog">
         <div className="modal-content">
-          <form onSubmit={() => handleSubmit(movie)}>
+          <form onSubmit={handleSubmit}>
             <div className="modal-header">
               <h4 className="modal-title">Add Movie</h4>
             </div>
